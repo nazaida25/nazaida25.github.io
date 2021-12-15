@@ -1,3 +1,6 @@
+#Nama : Naza Zaida Mustofa
+#NIM  : 12220036
+
 from numpy import e
 import pandas as pd
 import streamlit as st
