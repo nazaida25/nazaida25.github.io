@@ -69,7 +69,7 @@ with n_besar_negara:
         st.write(minyakTahunOut)
         st.bar_chart(minyakTahunOut)
     except Exception:
-        st.error('Pastikan anda memasukkan tahun valid. Apabila sudah, maka data tidak ditemukan.')
+        st.error('Pastikan anda memasukkan tahun yang valid. Apabila sudah, maka data dan grafik akan dimunculkan.')
 
 with n_terbesar:
     st.markdown('***')
@@ -129,7 +129,7 @@ with negara_filtered:
                 st.markdown(f'Subregion: **{negaraTahunMaxSubregion}**')
                 st.markdown(f'Jumlah produksi: **{negaraTahunMaxProduksi}**')
             except Exception:
-                st.error('Pastikan anda memasukkan tahun valid. Apabila sudah, maka data tidak ditemukan.')
+                st.error('Pastikan anda memasukkan tahun yang valid. Apabila sudah, maka data dan grafik akan dimunculkan.')
         elif userPilihFilter2 == 'Semua waktu':
             dfMaxID = df['produksi'].idxmax()
             negaraMax = df[dfMaxID:dfMaxID+1]
@@ -164,7 +164,7 @@ with negara_filtered:
                 st.markdown(f'Subregion: **{negaraTahunMinSubregion}**')
                 st.markdown(f'Jumlah produksi: **{negaraTahunMinProduksi}**')
             except Exception:
-                st.error('Pastikan anda memasukkan tahun valid. Apabila sudah, maka data tidak ditemukan.')
+                st.error('Pastikan anda memasukkan tahun yang valid. Apabila sudah, maka data dan grafik akan dimunculkan.')
         elif userPilihFilter2 == 'Semua waktu':
             dfMinF = df[df['produksi'] > 0]
             dfMinF.reset_index(inplace=True)
@@ -198,7 +198,7 @@ with negara_filtered:
                 dfNolFNewF = dfNolFNew[dfNolFNew['Tahun'] == int(userInputTahunNol)]
                 st.write(dfNolFNewF)
             except Exception:
-                st.error('Pastikan anda memasukkan tahun valid. Apabila sudah, maka data tidak ditemukan.')
+                st.error('Pastikan anda memasukkan tahun yang valid. Apabila sudah, maka data dan grafik akan dimunculkan.')
         elif userPilihFilter2 == 'Semua waktu':
             st.write(dfNolFNew)
             
