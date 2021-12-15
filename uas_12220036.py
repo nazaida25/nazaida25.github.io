@@ -75,8 +75,6 @@ with n_terbesar:
     st.markdown('***')
     st.markdown('### Negara dengan produksi terbesar')
     userJmlInputRank = st.text_input('Jumlah negara')
-    except Exception:
-       st.error('Pastikan anda memasukkan jumlah negara yang valid. Apabila sudah, maka data dan grafik akan muncul.')
     sumProduksi = (df[['kode_negara', 'produksi']].groupby('kode_negara', as_index=False).sum().sort_values(['produksi'], ascending=[0])).reset_index(drop=True)
     sumProduksi = sumProduksi[:int(userJmlInputRank)].reset_index(drop=True)
     sumProduksiOut = sumProduksi[['kode_negara', 'produksi']].rename(columns={'kode_negara':'index'}).set_index('index')
