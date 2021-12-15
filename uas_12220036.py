@@ -80,8 +80,6 @@ with n_terbesar:
     sumProduksiOut = sumProduksi[['kode_negara', 'produksi']].rename(columns={'kode_negara':'index'}).set_index('index')
     st.write(sumProduksiOut)
     st.bar_chart(sumProduksiOut)
- except Exception:
-        st.error('Pastikan anda memasukkan jumlah data atau tahun yang valid. Apabila sudah, maka data dan grafik akan muncul.')
   
 with informasi_negara:
     st.markdown('***')
