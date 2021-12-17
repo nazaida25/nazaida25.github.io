@@ -23,7 +23,6 @@ dfC = pd.read_json("kode_negara_lengkap.json")
 # Data cleanup
 for nCode in df.index.unique().tolist():
     if nCode not in dfC['alpha-3'].tolist():
-        print('IS TRUE nCode:', nCode)
         df.drop([nCode], inplace=True)
 df.reset_index(inplace=True)
 
@@ -74,12 +73,15 @@ with n_besar_negara:
 with n_terbesar:
     st.markdown('***')
     st.markdown('### Negara dengan produksi terbesar')
-    userJmlInputRank = st.text_input('Jumlah negara')
-    sumProduksi = (df[['kode_negara', 'produksi']].groupby('kode_negara', as_index=False).sum().sort_values(['produksi'], ascending=[0])).reset_index(drop=True)
-    sumProduksi = sumProduksi[:int(userJmlInputRank)].reset_index(drop=True)
-    sumProduksiOut = sumProduksi[['kode_negara', 'produksi']].rename(columns={'kode_negara':'index'}).set_index('index')
-    st.write(sumProduksiOut)
-    st.bar_chart(sumProduksiOut)
+    try:
+        userJmlInputRank = st.text_input('Jumlah negara')
+        sumProduksi = (df[['kode_negara', 'produksi']].groupby('kode_negara', as_index=False).sum().sort_values(['produksi'], ascending=[0])).reset_index(drop=True)
+        sumProduksi = sumProduksi[:int(userJmlInputRank)].reset_index(drop=True)
+        sumProduksiOut = sumProduksi[['kode_negara', 'produksi']].rename(columns={'kode_negara':'index'}).set_index('index')
+        st.write(sumProduksiOut)
+        st.bar_chart(sumProduksiOut)
+    except Exception:
+        pass
     
 with informasi_negara:
     st.markdown('***')
@@ -208,7 +210,6 @@ with negara_filtered:
 
     
     
-
 
 
 
