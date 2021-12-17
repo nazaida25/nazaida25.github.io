@@ -68,7 +68,7 @@ with n_besar_negara:
         st.write(minyakTahunOut)
         st.bar_chart(minyakTahunOut)
     except Exception:
-        st.error('Pastikan anda memasukkan tahun dan jumlah negara yang valid. Apabila sudah, maka data dan grafik akan muncul.')
+        st.error('Pastikan anda memasukkan tahun dan jumlah peringkat negara yang valid. Apabila sudah, maka data dan grafik akan muncul.')
 
 with n_terbesar:
     st.markdown('***')
